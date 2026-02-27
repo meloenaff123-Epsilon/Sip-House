@@ -115,7 +115,20 @@ footer{text-align:center;padding:30px;background:#020617;}
 }
 </style>
 </head>
+<script>
+function calculateCost(){
+  let size = parseFloat(document.getElementById("size").value);
+  let floor = parseFloat(document.getElementById("floor").value);
+  let finish = parseFloat(document.getElementById("finish").value);
 
+  let basePricePerM2 = 1200000; // 1м2 үнэ (өөрчилж болно)
+
+  let total = size * basePricePerM2 * floor * finish;
+
+  document.getElementById("result").innerText =
+    "Ойролцоох үнэ: " + total.toLocaleString() + "₮";
+}
+</script>
 <body>
 
 <header>
@@ -201,7 +214,36 @@ footer{text-align:center;padding:30px;background:#020617;}
   <h2>Өөрийн байшингийн төслийг өнөөдөр эхлүүлмээр байна уу?</h2>
   <a href="#contact" class="btn">Үнэгүй зөвлөгөө авах</a>
 </section>
+<section>
+  <h2>Байшингийн үнийн урьдчилсан тооцоолол</h2>
 
+  <div class="calculator">
+    
+    <label>Хэмжээ (м2)</label>
+    <select id="size">
+      <option value="80">80м2</option>
+      <option value="100">100м2</option>
+      <option value="120">120м2</option>
+    </select>
+
+    <label>Давхар</label>
+    <select id="floor">
+      <option value="1">1 давхар</option>
+      <option value="1.3">2 давхар</option>
+    </select>
+
+    <label>Дуусгалтын түвшин</label>
+    <select id="finish">
+      <option value="1">Стандарт</option>
+      <option value="1.2">Дээд зэрэглэл</option>
+    </select>
+
+    <button onclick="calculateCost()">Тооцоолох</button>
+
+    <div class="calculator-result" id="result"></div>
+
+  </div>
+</section>
 <section id="contact">
   <h2>Холбоо барих</h2>
   <p>📞 +976 9925 5484</p>
@@ -229,5 +271,6 @@ window.addEventListener("scroll",function(){
 
 </body>
 </html>
+
 
 
