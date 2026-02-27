@@ -3,57 +3,134 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Detail</title>
+<title>Төслийн дэлгэрэнгүй | Сип Мастэр Хаус</title>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
 <style>
-body{margin:0;font-family:Arial;background:#0f172a;color:white;}
-.container{padding:50px 10%;}
-img{width:100%;max-width:600px;border-radius:10px;}
-.back{color:#facc15;text-decoration:none;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+body{background:#0f172a;color:white;}
+
+header{
+  padding:20px 10%;
+  background:#020617;
+}
+header a{
+  color:#facc15;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.container{
+  padding:80px 10%;
+}
+
+h1{color:#facc15;margin-bottom:20px;}
+
+.gallery{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  margin-bottom:40px;
+}
+
+.gallery img{
+  width:400px;
+  border-radius:10px;
+}
+
+.info{
+  background:#1e293b;
+  padding:30px;
+  border-radius:10px;
+  line-height:1.7;
+}
+
+.info strong{
+  color:#facc15;
+}
+
+@media(max-width:768px){
+  .gallery img{width:100%;}
+}
 </style>
 </head>
+
 <body>
 
+<header>
+  <a href="index.html">← Буцах</a>
+</header>
+
 <div class="container">
-<a href="index.html" class="back">← Буцах</a>
 
 <h1 id="title"></h1>
-<img id="image">
-<p id="description"></p>
+
+<div class="gallery">
+  <img id="image1">
+  <img id="image2">
+</div>
+
+<div class="info">
+  <p><strong>Байршил:</strong> <span id="location"></span></p>
+  <p><strong>Хэмжээ:</strong> <span id="size"></span></p>
+  <p><strong>Баригдсан хугацаа:</strong> <span id="duration"></span></p>
+  <p><strong>Он:</strong> <span id="year"></span></p>
+  <br>
+  <p id="description"></p>
+</div>
 
 </div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-function filterProjects(size){
-  const projects = document.querySelectorAll('.project');
-  projects.forEach(p=>{
-    if(size==='all' || p.dataset.size===size){
-      p.style.display='block';
-    } else {
-      p.style.display='none';
-    }
-  });
-}
-</script>
-<script>
+AOS.init();
+
 const projects = {
-  1: {
-    title: "80м2 SIP Байшин",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-    description: "80м2 хэмжээтэй, 45 хоногт баригдсан."
+  1:{
+    title:"80м2 SIP Байшин",
+    image1:"https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+    image2:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    location:"Улаанбаатар",
+    size:"80м2",
+    duration:"45 хоног",
+    year:"2025",
+    description:"Энэхүү 80м2 SIP байшин нь эрчим хүчний хэмнэлттэй, дулаан алдагдал багатай орчин үеийн шийдэл юм."
   },
-  2: {
-    title: "100м2 Модон Байшин",
-    image: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
-    description: "Байгальд ээлтэй модон хийц."
+  2:{
+    title:"100м2 Модон Байшин",
+    image1:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    image2:"https://images.unsplash.com/photo-1599423300746-b62533397364",
+    location:"Төв аймаг",
+    size:"100м2",
+    duration:"60 хоног",
+    year:"2024",
+    description:"Байгальд ээлтэй модон хийцтэй, дулаан хадгалах өндөр чадвартай загвар."
+  },
+  3:{
+    title:"90м2 Хос Давхар Байшин",
+    image1:"https://images.unsplash.com/photo-1599423300746-b62533397364",
+    image2:"https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+    location:"Улаанбаатар",
+    size:"90м2",
+    duration:"55 хоног",
+    year:"2025",
+    description:"Хос давхар, орчин үеийн интерьер дизайнтай SIP шийдэл."
   }
 };
 
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
+const params=new URLSearchParams(window.location.search);
+const id=params.get("id");
 
 if(projects[id]){
-  document.getElementById("title").innerText = projects[id].title;
-  document.getElementById("image").src = projects[id].image;
-  document.getElementById("description").innerText = projects[id].description;
+  document.getElementById("title").innerText=projects[id].title;
+  document.getElementById("image1").src=projects[id].image1;
+  document.getElementById("image2").src=projects[id].image2;
+  document.getElementById("location").innerText=projects[id].location;
+  document.getElementById("size").innerText=projects[id].size;
+  document.getElementById("duration").innerText=projects[id].duration;
+  document.getElementById("year").innerText=projects[id].year;
+  document.getElementById("description").innerText=projects[id].description;
 }
 </script>
 
