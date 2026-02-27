@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Detail</title>
+<style>
+body{margin:0;font-family:Arial;background:#0f172a;color:white;}
+.container{padding:50px 10%;}
+img{width:100%;max-width:600px;border-radius:10px;}
+.back{color:#facc15;text-decoration:none;}
+</style>
+</head>
+<body>
+
+<div class="container">
+<a href="index.html" class="back">← Буцах</a>
+
+<h1 id="title"></h1>
+<img id="image">
+<p id="description"></p>
+
+</div>
+
+<script>
+const projects = {
+  1: {
+    title: "80м2 SIP Байшин",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    description: "80м2 хэмжээтэй, 45 хоногт баригдсан."
+  },
+  2: {
+    title: "100м2 Модон Байшин",
+    image: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+    description: "Байгальд ээлтэй модон хийц."
+  }
+};
+
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+if(projects[id]){
+  document.getElementById("title").innerText = projects[id].title;
+  document.getElementById("image").src = projects[id].image;
+  document.getElementById("description").innerText = projects[id].description;
+}
+</script>
+
+</body>
+</html>
