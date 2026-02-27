@@ -5,34 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Сип Мастэр Хаус | SIP Байшин Барилга</title>
-<meta name="description" content="SIP болон модон байшин барилга угсралт. Эрчим хүчний хэмнэлттэй, бат бөх шийдэл.">
-<meta property="og:title" content="Сип Мастэр Хаус">
-<meta property="og:description" content="SIP болон модон байшин барилга">
-<meta property="og:type" content="website">
+<meta name="description" content="SIP болон модон байшин барилга угсралт. 30–60 хоногт түлхүүр гардуулах. 5 жилийн баталгаатай.">
 
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
-  <script>
-window.addEventListener("scroll",function(){
-  document.querySelector("header").classList.toggle("scrolled",window.scrollY>50);
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-  anchor.addEventListener("click",function(e){
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href"))
-      .scrollIntoView({behavior:"smooth"});
-  });
-});
-</script>
-body{background:#0f172a;color:white;line-height:1.6;}
+body{background:#0f172a;color:white;line-height:1.6;scroll-behavior:smooth;}
 
 header{
   position:fixed;width:100%;background:#0f172a;
   padding:15px 10%;display:flex;justify-content:space-between;
-  align-items:center;z-index:1000;
+  align-items:center;z-index:1000;transition:0.3s;
+}
+header.scrolled{
+  background:rgba(15,23,42,0.95);
+  backdrop-filter:blur(10px);
 }
 header h1{color:#facc15;}
 nav a{color:white;margin-left:20px;text-decoration:none;}
@@ -50,9 +38,6 @@ nav a:hover{color:#facc15;}
 }
 .hero-content{position:relative;z-index:1;}
 .hero h2{font-size:48px;margin-bottom:20px;}
-<h2>30–60 хоногт түлхүүр гардуулах SIP байшин</h2>
-<p>5 жилийн баталгаатай • Үнэгүй зөвлөгөө • Эрчим хүчний хэмнэлт</p>
-<a href="#contact" class="btn">Үнийн санал авах</a>
 .btn{
   background:#facc15;color:black;padding:12px 30px;
   border-radius:6px;text-decoration:none;font-weight:bold;
@@ -60,82 +45,45 @@ nav a:hover{color:#facc15;}
 
 section{padding:100px 10%;}
 .cards{display:flex;flex-wrap:wrap;gap:20px;}
-
 .card{
   background:#1e293b;padding:30px;border-radius:10px;
   flex:1 1 300px;transition:0.3s;
 }
 .card:hover{transform:translateY(-10px);}
-<section>
-  <h2>Яагаад Сип Мастэр Хаус вэ?</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>10+ жил</h3>
-      <p>Барилгын салбарын туршлага</p>
-    </div>
-    <div class="card">
-      <h3>120+ төсөл</h3>
-      <p>Амжилттай хүлээлгэн өгсөн</p>
-    </div>
-    <div class="card">
-      <h3>5 жилийн баталгаа</h3>
-      <p>Чанарын баталгаа</p>
-    </div>
-    <div class="card">
-      <h3>30–60 хоног</h3>
-      <p>Түлхүүр гардуулах хугацаа</p>
-    </div>
-  </div>
-</section>
-.gallery{
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  justify-content:center;
-}
-.project{
-  width:350px;
-}
-.project img{
-  width:100%;
-  border-radius:10px;
-  transition:0.3s;
-  cursor:pointer;
-}
-.project img:hover{transform:scale(1.05);}
-<section>
-  <h2>Хэрэглэгчдийн сэтгэгдэл</h2>
-  <div class="testimonials">
-    <div class="testimonial">
-      ⭐⭐⭐⭐⭐
-      <p>45 хоногт хүлээлгэж өгсөн. Дулаан маш сайн.</p>
-      <strong>Бат-Эрдэнэ, БЗД</strong>
-    </div>
-    <div class="testimonial">
-      ⭐⭐⭐⭐⭐
-      <p>Баг маш хариуцлагатай ажилласан.</p>
-      <strong>Отгонцэцэг, Төв аймаг</strong>
-    </div>
-  </div>
-</section>
-.filter{
-  text-align:center;
-  margin-bottom:30px;
-}
-.filter button{
-  padding:10px 20px;
-  margin:0 10px;
-  border:none;
-  background:#facc15;
-  font-weight:bold;
-  cursor:pointer;
-}
 
 .stats{
-  display:flex;justify-content:space-around;
-  text-align:center;
+  display:flex;justify-content:space-around;text-align:center;
 }
 .stat h3{font-size:40px;color:#facc15;}
+
+.gallery{
+  display:flex;flex-wrap:wrap;gap:20px;justify-content:center;
+}
+.project{position:relative;width:350px;overflow:hidden;}
+.project img{
+  width:100%;border-radius:10px;transition:0.3s;cursor:pointer;
+}
+.project:hover img{transform:scale(1.05);}
+.project-overlay{
+  position:absolute;bottom:0;width:100%;
+  background:rgba(0,0,0,0.7);padding:15px;
+  transform:translateY(100%);transition:0.3s;
+}
+.project:hover .project-overlay{transform:translateY(0);}
+.project-overlay h4{color:#facc15;margin-bottom:5px;}
+
+.testimonials{
+  display:flex;gap:20px;flex-wrap:wrap;
+}
+.testimonial{
+  background:#1e293b;padding:25px;border-radius:10px;
+  flex:1 1 300px;
+}
+
+.cta{
+  background:#1e293b;text-align:center;
+  padding:80px 10%;border-radius:12px;
+}
 
 form{max-width:500px;margin:auto;}
 input,textarea{
@@ -157,20 +105,6 @@ footer{text-align:center;padding:30px;background:#020617;}
   font-size:22px;text-decoration:none;
 }
 
-#lightbox{
-  display:none;
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  background:rgba(0,0,0,0.9);
-  justify-content:center;
-  align-items:center;
-}
-#lightbox img{
-  max-width:90%;
-  max-height:90%;
-}
-
 @media(max-width:768px){
   .hero h2{font-size:30px;}
   .project{width:100%;}
@@ -185,7 +119,6 @@ footer{text-align:center;padding:30px;background:#020617;}
   <h1>Сип Мастэр Хаус</h1>
   <nav>
     <a href="#about">Бидний тухай</a>
-    <a href="#services">Үйлчилгээ</a>
     <a href="#projects">Төслүүд</a>
     <a href="#contact">Холбоо</a>
   </nav>
@@ -193,139 +126,101 @@ footer{text-align:center;padding:30px;background:#020617;}
 
 <section class="hero">
   <div class="hero-content" data-aos="fade-up">
-    <h2>Орчин үеийн SIP & Модон Байшин</h2>
-    <p>Дулаан алдагдал багатай • Бат бөх • Түргэн барилга</p>
+    <h2>30–60 хоногт түлхүүр гардуулах SIP байшин</h2>
+    <p>5 жилийн баталгаатай • Эрчим хүчний хэмнэлт • Үнэгүй зөвлөгөө</p>
+    <a href="#contact" class="btn">Үнийн санал авах</a>
   </div>
 </section>
 
-<section id="about" data-aos="fade-up">
+<section id="about">
   <h2>Бидний тухай</h2>
   <p>Бид Улаанбаатар хотод SIP болон модон байшин барилгын мэргэжлийн үйлчилгээ үзүүлдэг.</p>
 </section>
 
-<section class="stats" data-aos="fade-up">
-  <div class="stat">
-    <h3>60+</h3>
-    <p>Амжилттай төсөл</p>
-  </div>
-  <div class="stat">
-    <h3>5+</h3>
-    <p>Жилийн туршлага</p>
-  </div>
-  <div class="stat">
-    <h3>3 жил</h3>
-    <p>Баталгаа</p>
+<section>
+  <h2>Яагаад Сип Мастэр Хаус вэ?</h2>
+  <div class="cards">
+    <div class="card"><h3>10+ жил</h3><p>Барилгын туршлага</p></div>
+    <div class="card"><h3>120+ төсөл</h3><p>Амжилттай хүлээлгэн өгсөн</p></div>
+    <div class="card"><h3>5 жилийн баталгаа</h3><p>Чанарын баталгаа</p></div>
+    <div class="card"><h3>30–60 хоног</h3><p>Түлхүүр гардуулах хугацаа</p></div>
   </div>
 </section>
 
-<section id="services">
-  <h2 data-aos="fade-up">Манай үйлчилгээ</h2>
-  <div class="cards">
-    <div class="card" data-aos="fade-up">
-      <h3>SIP Байшин</h3>
-      <p>Эрчим хүчний хэмнэлттэй шийдэл.</p>
-    </div>
-    <div class="card" data-aos="fade-up">
-      <h3>Модон Байшин</h3>
-      <p>Байгальд ээлтэй, үзэмж төгс.</p>
-    </div>
-    <div class="card" data-aos="fade-up">
-      <h3>Засвар, өргөтгөл</h3>
-      <p>Мэргэжлийн засвар үйлчилгээ.</p>
-       <p>Сип хавтан худалдаа.</p>
-    </div>
-  </div>
+<section class="stats">
+  <div class="stat"><h3>120+</h3><p>Төсөл</p></div>
+  <div class="stat"><h3>10+</h3><p>Жил</p></div>
+  <div class="stat"><h3>5 жил</h3><p>Баталгаа</p></div>
 </section>
 
 <section id="projects">
-  <h2 data-aos="fade-up">Төслүүд</h2>
-
-  <div class="filter">
-    <button onclick="filterProjects('all')">Бүгд</button>
-    <button onclick="filterProjects('80')">50м2</button>
-    <button onclick="filterProjects('100')">70м2</button>
-  </div>
-
+  <h2>Төслүүд</h2>
   <div class="gallery">
 
-    <div class="project" data-size="80">
-      <a href="project.html?id=1">
-        <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c" data-aos="zoom-in">
-      </a>
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c">
+      <div class="project-overlay">
+        <h4>80м2 • 45 хоног • УБ</h4>
+        <p>Дэлгэрэнгүй →</p>
+      </div>
     </div>
 
-    <div class="project" data-size="100">
-      <a href="project.html?id=2">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" data-aos="zoom-in">
-      </a>
-    </div>
-
-    <div class="project" data-size="80">
-      <a href="project.html?id=3">
-        <img src="https://images.unsplash.com/photo-1599423300746-b62533397364" data-aos="zoom-in">
-      </a>
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+      <div class="project-overlay">
+        <h4>100м2 • 60 хоног • Төв аймаг</h4>
+        <p>Дэлгэрэнгүй →</p>
+      </div>
     </div>
 
   </div>
 </section>
 
-<section id="contact" data-aos="fade-up">
-  <section class="cta">
+<section>
+  <h2>Хэрэглэгчдийн сэтгэгдэл</h2>
+  <div class="testimonials">
+    <div class="testimonial">
+      ⭐⭐⭐⭐⭐
+      <p>45 хоногт хүлээлгэж өгсөн. Дулаан маш сайн.</p>
+      <strong>Бат-Эрдэнэ</strong>
+    </div>
+    <div class="testimonial">
+      ⭐⭐⭐⭐⭐
+      <p>Маш хариуцлагатай, чанартай ажилласан.</p>
+      <strong>Отгонцэцэг</strong>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
   <h2>Өөрийн байшингийн төслийг өнөөдөр эхлүүлмээр байна уу?</h2>
   <a href="#contact" class="btn">Үнэгүй зөвлөгөө авах</a>
 </section>
+
+<section id="contact">
   <h2>Холбоо барих</h2>
   <p>📞 +976 9925 5484</p>
-  <form name="contact" method="POST" data-netlify="true">
-    <input type="hidden" name="form-name" value="contact">
-    <input type="text" name="name" placeholder="Таны нэр" required>
-    <input type="text" name="phone" placeholder="Утас" required>
-    <textarea name="message" placeholder="Төслийн мэдээлэл" required></textarea>
+  <form>
+    <input type="text" placeholder="Таны нэр" required>
+    <input type="text" placeholder="Утас" required>
+    <textarea placeholder="Төслийн мэдээлэл" required></textarea>
     <button type="submit">Илгээх</button>
   </form>
 </section>
 
 <footer>
-  © 2026 Сип Мастэр Хаус
+© 2026 Сип Мастэр Хаус
 </footer>
 
 <a href="https://wa.me/97699255484" class="whatsapp" target="_blank">💬</a>
 
-<div id="lightbox">
-  <img id="lightbox-img">
-</div>
-
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
 AOS.init();
-
-function filterProjects(size){
-  const projects=document.querySelectorAll('.project');
-  projects.forEach(p=>{
-    if(size==='all'||p.dataset.size===size){
-      p.style.display='block';
-    }else{
-      p.style.display='none';
-    }
-  });
-}
-
-document.addEventListener("DOMContentLoaded",function(){
-  document.querySelectorAll('.project img').forEach(img=>{
-    img.addEventListener('click',function(e){
-      e.preventDefault();
-      document.getElementById('lightbox').style.display='flex';
-      document.getElementById('lightbox-img').src=this.src;
-    });
-  });
-  document.getElementById('lightbox').onclick=function(){
-    this.style.display='none';
-  };
+window.addEventListener("scroll",function(){
+  document.querySelector("header").classList.toggle("scrolled",window.scrollY>50);
 });
 </script>
 
 </body>
 </html>
-
-
-
