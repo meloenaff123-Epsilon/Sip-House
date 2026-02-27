@@ -14,6 +14,19 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+  <script>
+window.addEventListener("scroll",function(){
+  document.querySelector("header").classList.toggle("scrolled",window.scrollY>50);
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+  anchor.addEventListener("click",function(e){
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href"))
+      .scrollIntoView({behavior:"smooth"});
+  });
+});
+</script>
 body{background:#0f172a;color:white;line-height:1.6;}
 
 header{
@@ -37,7 +50,9 @@ nav a:hover{color:#facc15;}
 }
 .hero-content{position:relative;z-index:1;}
 .hero h2{font-size:48px;margin-bottom:20px;}
-
+<h2>30–60 хоногт түлхүүр гардуулах SIP байшин</h2>
+<p>5 жилийн баталгаатай • Үнэгүй зөвлөгөө • Эрчим хүчний хэмнэлт</p>
+<a href="#contact" class="btn">Үнийн санал авах</a>
 .btn{
   background:#facc15;color:black;padding:12px 30px;
   border-radius:6px;text-decoration:none;font-weight:bold;
@@ -51,18 +66,36 @@ section{padding:100px 10%;}
   flex:1 1 300px;transition:0.3s;
 }
 .card:hover{transform:translateY(-10px);}
-
+<section>
+  <h2>Яагаад Сип Мастэр Хаус вэ?</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>10+ жил</h3>
+      <p>Барилгын салбарын туршлага</p>
+    </div>
+    <div class="card">
+      <h3>120+ төсөл</h3>
+      <p>Амжилттай хүлээлгэн өгсөн</p>
+    </div>
+    <div class="card">
+      <h3>5 жилийн баталгаа</h3>
+      <p>Чанарын баталгаа</p>
+    </div>
+    <div class="card">
+      <h3>30–60 хоног</h3>
+      <p>Түлхүүр гардуулах хугацаа</p>
+    </div>
+  </div>
+</section>
 .gallery{
   display:flex;
   flex-wrap:wrap;
   gap:20px;
   justify-content:center;
 }
-
 .project{
   width:350px;
 }
-
 .project img{
   width:100%;
   border-radius:10px;
@@ -70,7 +103,21 @@ section{padding:100px 10%;}
   cursor:pointer;
 }
 .project img:hover{transform:scale(1.05);}
-
+<section>
+  <h2>Хэрэглэгчдийн сэтгэгдэл</h2>
+  <div class="testimonials">
+    <div class="testimonial">
+      ⭐⭐⭐⭐⭐
+      <p>45 хоногт хүлээлгэж өгсөн. Дулаан маш сайн.</p>
+      <strong>Бат-Эрдэнэ, БЗД</strong>
+    </div>
+    <div class="testimonial">
+      ⭐⭐⭐⭐⭐
+      <p>Баг маш хариуцлагатай ажилласан.</p>
+      <strong>Отгонцэцэг, Төв аймаг</strong>
+    </div>
+  </div>
+</section>
 .filter{
   text-align:center;
   margin-bottom:30px;
@@ -223,6 +270,10 @@ footer{text-align:center;padding:30px;background:#020617;}
 </section>
 
 <section id="contact" data-aos="fade-up">
+  <section class="cta">
+  <h2>Өөрийн байшингийн төслийг өнөөдөр эхлүүлмээр байна уу?</h2>
+  <a href="#contact" class="btn">Үнэгүй зөвлөгөө авах</a>
+</section>
   <h2>Холбоо барих</h2>
   <p>📞 +976 9925 5484</p>
   <form name="contact" method="POST" data-netlify="true">
@@ -275,5 +326,6 @@ document.addEventListener("DOMContentLoaded",function(){
 
 </body>
 </html>
+
 
 
