@@ -92,10 +92,16 @@ header.scrolled{
 .calculator{
   background:#1e293b;
   padding:40px;
-  border-radius:12px;
+  border-radius:15px;
   max-width:600px;
   margin:auto;
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+  transition:0.3s;
 }
+.calculator:hover{
+  transform:translateY(-5px);
+}
+.calculator input,
 .calculator select{
   width:100%;
   padding:12px;
@@ -103,9 +109,19 @@ header.scrolled{
   border-radius:6px;
   border:none;
 }
+.calculator button{
+  margin-top:10px;
+}
 .calculator-result{
-  margin-top:20px;
-  font-size:22px;
+  margin-top:25px;
+  font-size:24px;
   color:#facc15;
   font-weight:bold;
+  opacity:0;
+  transform:translateY(10px);
+  transition:0.4s;
+}
+.calculator-result.show{
+  opacity:1;
+  transform:translateY(0);
 }
