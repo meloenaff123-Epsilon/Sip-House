@@ -117,17 +117,42 @@ footer{text-align:center;padding:30px;background:#020617;}
 </head>
 <script>
 function calculateCost(){
+
   let size = parseFloat(document.getElementById("size").value);
   let floor = parseFloat(document.getElementById("floor").value);
   let finish = parseFloat(document.getElementById("finish").value);
 
-  let basePricePerM2 = 1200000; // 1м2 үнэ (өөрчилж болно)
+  if(!size || size < 30){
+    alert("Хэмжээг зөв оруулна уу (30м2-с дээш).");
+    return;
+  }
+
+  // REAL MARKET LOGIC
+  let basePricePerM2;
+
+  if(size <= 80){
+    basePricePerM2 = 1300000;
+  } else if(size <= 120){
+    basePricePerM2 = 1200000;
+  } else {
+    basePricePerM2 = 1100000;
+  }
 
   let total = size * basePricePerM2 * floor * finish;
 
-  document.getElementById("result").innerText =
-    "Ойролцоох үнэ: " + total.toLocaleString() + "₮";
+  let resultBox = document.getElementById("result");
+
+  resultBox.innerHTML =
+    "Ойролцоох үнэ: " + total.toLocaleString() + "₮<br><small>Нарийвчилсан үнийн санал авах бол доорх form-оор холбогдоно уу.</small>";
+
+  resultBox.classList.add("show");
+
+  // Auto scroll to contact
+  setTimeout(()=>{
+    document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+  },1500);
 }
+</script>
 </script>
 <body>
 
@@ -269,6 +294,7 @@ window.addEventListener("scroll",function(){
 
 </body>
 </html>
+
 
 
 
