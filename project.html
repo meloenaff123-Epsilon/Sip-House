@@ -21,7 +21,18 @@ img{width:100%;max-width:600px;border-radius:10px;}
 <p id="description"></p>
 
 </div>
-
+<script>
+function filterProjects(size){
+  const projects = document.querySelectorAll('.project');
+  projects.forEach(p=>{
+    if(size==='all' || p.dataset.size===size){
+      p.style.display='block';
+    } else {
+      p.style.display='none';
+    }
+  });
+}
+</script>
 <script>
 const projects = {
   1: {
