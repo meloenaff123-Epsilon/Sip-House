@@ -37,4 +37,55 @@ button {background:#5c3d2e; color:white; padding:10px; border:none; border-radiu
 .map {margin-top:20px;}
 
 /* Footer */
+
 footer {background:#3e2723; color:white; padding:15px; text-align:center;}
+/* Sticky effect */
+header.scrolled{
+  background:rgba(15,23,42,0.95);
+  backdrop-filter:blur(10px);
+  transition:0.3s;
+}
+
+/* Project overlay */
+.project{
+  position:relative;
+  overflow:hidden;
+}
+.project-overlay{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  background:rgba(0,0,0,0.7);
+  padding:15px;
+  transform:translateY(100%);
+  transition:0.3s;
+}
+.project:hover .project-overlay{
+  transform:translateY(0);
+}
+.project-overlay h4{
+  margin:0;
+  color:#facc15;
+}
+
+/* CTA block */
+.cta{
+  background:#1e293b;
+  text-align:center;
+  padding:80px 10%;
+  border-radius:12px;
+}
+.cta h2{
+  margin-bottom:20px;
+}
+.testimonials{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.testimonial{
+  background:#1e293b;
+  padding:25px;
+  border-radius:10px;
+  flex:1 1 300px;
+}
