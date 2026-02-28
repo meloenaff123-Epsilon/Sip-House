@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SIP Master House | Professional SIP Construction</title>
+<title>SIP Master House | Elite Construction</title>
 <meta name="description" content="SIP болон модон байшин барилга угсралт. 5 жилийн баталгаатай.">
 
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -19,7 +19,7 @@
   --accent:#facc15;
 }
 body.light{
-  --bg:#f4f4f4;
+  --bg:#f8fafc;
   --card:#ffffff;
   --text:#111;
   --accent:#0f172a;
@@ -36,79 +36,92 @@ body{
 /* HEADER */
 header{
   position:fixed;width:100%;
-  backdrop-filter:blur(10px);
-  background:rgba(15,23,42,0.85);
   padding:15px 10%;
   display:flex;justify-content:space-between;
   align-items:center;
+  backdrop-filter:blur(12px);
+  background:rgba(15,23,42,0.85);
+  transition:0.3s;
   z-index:1000;
 }
-body.light header{
-  background:rgba(255,255,255,0.85);
-}
+body.light header{background:rgba(255,255,255,0.85);}
+
 nav a{
   color:var(--text);
   margin-left:20px;
   text-decoration:none;
   font-weight:500;
+  position:relative;
 }
-nav a:hover{color:var(--accent);}
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;bottom:-5px;
+  width:0;height:2px;
+  background:var(--accent);
+  transition:0.3s;
+}
+nav a:hover::after{width:100%;}
 
 .controls{display:flex;gap:15px;align-items:center;}
 .controls select{padding:6px;border-radius:6px;}
 
+/* HERO */
 .hero{
   height:100vh;
   background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
   url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover no-repeat;
   display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:0 10%;
+  text-align:center;
 }
-.hero h2{font-size:48px;margin-bottom:20px;}
-
+.hero h2{
+  font-size:50px;
+  font-weight:700;
+  margin-bottom:20px;
+}
 .btn{
   background:var(--accent);
+  padding:14px 30px;
+  border-radius:10px;
   color:#000;
-  padding:12px 28px;
-  border-radius:8px;
-  text-decoration:none;
   font-weight:600;
+  text-decoration:none;
   transition:0.3s;
 }
-.btn:hover{transform:translateY(-4px);}
+.btn:hover{transform:translateY(-5px);}
 
+/* SECTIONS */
 section{padding:120px 10%;}
-section h2{text-align:center;margin-bottom:40px;font-size:32px;}
+section h2{text-align:center;margin-bottom:50px;font-size:34px;}
 
 .card{
   background:var(--card);
-  padding:30px;
-  border-radius:15px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  padding:35px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.25);
   transition:0.3s;
 }
-.card:hover{transform:translateY(-8px);}
+.card:hover{transform:translateY(-10px);}
 
+/* PROJECTS */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
+  gap:25px;
 }
 .project{
   position:relative;
   overflow:hidden;
-  border-radius:15px;
+  border-radius:20px;
 }
 .project img{
   width:100%;
-  display:block;
-  transition:0.4s;
+  transition:0.5s;
 }
-.project:hover img{transform:scale(1.1);}
-.project::after{
-  content:"View Project";
+.project:hover img{transform:scale(1.15);}
+.project-overlay{
   position:absolute;
-  bottom:0;left:0;
+  bottom:0;
   width:100%;
   background:rgba(0,0,0,0.7);
   color:white;
@@ -117,39 +130,53 @@ section h2{text-align:center;margin-bottom:40px;font-size:32px;}
   transform:translateY(100%);
   transition:0.4s;
 }
-.project:hover::after{transform:translateY(0);}
+.project:hover .project-overlay{transform:translateY(0);}
 
+/* CALCULATOR */
 .calculator{
-  max-width:500px;
+  max-width:550px;
   margin:auto;
 }
 .calculator input,
 .calculator select{
-  width:100%;padding:12px;margin:12px 0;
-  border-radius:8px;border:none;
+  width:100%;
+  padding:14px;
+  margin:12px 0;
+  border-radius:10px;
+  border:none;
 }
 .calculator button{
   width:100%;
-  padding:12px;
+  padding:14px;
   border:none;
-  border-radius:8px;
+  border-radius:10px;
   background:var(--accent);
   font-weight:600;
 }
-#result{margin-top:15px;font-weight:bold;text-align:center;}
+#result{
+  margin-top:15px;
+  font-size:18px;
+  text-align:center;
+  font-weight:600;
+}
 
+/* CONTACT */
 form{
-  max-width:500px;margin:auto;
+  max-width:550px;
+  margin:auto;
 }
 input,textarea{
-  width:100%;padding:12px;margin:10px 0;
-  border-radius:8px;border:none;
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border-radius:10px;
+  border:none;
 }
 button{cursor:pointer;}
 
 footer{
   text-align:center;
-  padding:30px;
+  padding:40px;
   background:var(--card);
 }
 
@@ -158,13 +185,13 @@ footer{
   bottom:20px;right:20px;
   background:#25D366;
   color:white;
-  padding:15px;
+  padding:18px;
   border-radius:50%;
   text-decoration:none;
 }
 
 @media(max-width:768px){
-.hero h2{font-size:28px;}
+.hero h2{font-size:30px;}
 }
 </style>
 </head>
@@ -185,7 +212,7 @@ footer{
 <option value="mn">MN</option>
 <option value="en">EN</option>
 </select>
-<i class="fas fa-moon" id="themeToggle" style="cursor:pointer;"></i>
+<i class="fas fa-moon" id="themeToggle"></i>
 </div>
 </header>
 
@@ -216,9 +243,18 @@ data-en="We provide professional SIP and wooden house construction services in U
 <section id="projects">
 <h2 data-mn="Төслүүд" data-en="Projects">Төслүүд</h2>
 <div class="gallery">
-<div class="project"><img src="images/sip1.jpg"></div>
-<div class="project"><img src="images/sip2.jpg"></div>
-<div class="project"><img src="images/sip3.jpg"></div>
+<div class="project">
+<img src="images/sip1.jpg">
+<div class="project-overlay">SIP Structure</div>
+</div>
+<div class="project">
+<img src="images/sip2.jpg">
+<div class="project-overlay">Interior Work</div>
+</div>
+<div class="project">
+<img src="images/sip3.jpg">
+<div class="project-overlay">Joint System</div>
+</div>
 </div>
 </section>
 
@@ -262,23 +298,22 @@ data-en="Price Calculator">
 AOS.init({duration:1000});
 
 // THEME
-const toggle=document.getElementById("themeToggle");
 if(localStorage.getItem("theme")==="light"){document.body.classList.add("light");}
-toggle.addEventListener("click",()=>{
+document.getElementById("themeToggle").onclick=function(){
 document.body.classList.toggle("light");
 localStorage.setItem("theme",
 document.body.classList.contains("light")?"light":"dark");
-});
+};
 
 // LANGUAGE
 const languageSelect=document.getElementById("language");
 const savedLang=localStorage.getItem("lang")||"mn";
 languageSelect.value=savedLang;
 setLanguage(savedLang);
-languageSelect.addEventListener("change",(e)=>{
+languageSelect.onchange=function(e){
 setLanguage(e.target.value);
 localStorage.setItem("lang",e.target.value);
-});
+};
 function setLanguage(lang){
 document.documentElement.lang=lang;
 document.querySelectorAll("[data-mn]").forEach(el=>{
