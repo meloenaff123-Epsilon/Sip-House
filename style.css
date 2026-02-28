@@ -25,7 +25,20 @@ header nav a {margin:0 10px; color:white; font-weight:bold;}
 /* Cards */
 .cards {display:flex; flex-wrap:wrap; justify-content:center; gap:20px;}
 .card {background:white; padding:20px; width:250px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+.card{
+  text-align:center;
+}
 
+.icon{
+  font-size:40px;
+  color:#facc15;
+  margin-bottom:15px;
+  transition:0.3s;
+}
+
+.card:hover .icon{
+  transform:scale(1.2);
+}
 /* Gallery */
 .gallery {display:flex; flex-wrap:wrap; justify-content:center; gap:10px;}
 .gallery img {width:300px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.2);}
@@ -125,3 +138,4 @@ header.scrolled{
   opacity:1;
   transform:translateY(0);
 }
+
