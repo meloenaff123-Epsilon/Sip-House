@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SIP Master House</title>
+<title>SIP Master House | Professional SIP Construction</title>
 <meta name="description" content="SIP болон модон байшин барилга угсралт. 5 жилийн баталгаатай.">
 
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -24,82 +25,146 @@ body.light{
   --accent:#0f172a;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
-body{background:var(--bg);color:var(--text);transition:0.3s;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  transition:0.3s;
+  scroll-behavior:smooth;
+}
 
+/* HEADER */
 header{
   position:fixed;width:100%;
-  background:var(--bg);
+  backdrop-filter:blur(10px);
+  background:rgba(15,23,42,0.85);
   padding:15px 10%;
   display:flex;justify-content:space-between;
   align-items:center;
   z-index:1000;
 }
-nav a{color:var(--text);margin-left:20px;text-decoration:none;}
+body.light header{
+  background:rgba(255,255,255,0.85);
+}
+nav a{
+  color:var(--text);
+  margin-left:20px;
+  text-decoration:none;
+  font-weight:500;
+}
 nav a:hover{color:var(--accent);}
 
 .controls{display:flex;gap:15px;align-items:center;}
-.controls select{padding:5px;border-radius:5px;}
+.controls select{padding:6px;border-radius:6px;}
 
 .hero{
   height:100vh;
-  background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover no-repeat;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+  url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover no-repeat;
   display:flex;align-items:center;justify-content:center;
-  text-align:center;position:relative;
+  text-align:center;padding:0 10%;
 }
-.hero::after{
-  content:"";position:absolute;width:100%;height:100%;
-  background:rgba(0,0,0,0.6);
-}
-.hero-content{position:relative;z-index:1;}
+.hero h2{font-size:48px;margin-bottom:20px;}
+
 .btn{
   background:var(--accent);
   color:#000;
-  padding:12px 25px;
-  border-radius:6px;
+  padding:12px 28px;
+  border-radius:8px;
   text-decoration:none;
-  display:inline-block;
-  margin-top:20px;
-  font-weight:bold;
+  font-weight:600;
+  transition:0.3s;
 }
+.btn:hover{transform:translateY(-4px);}
 
-section{padding:100px 10%;}
+section{padding:120px 10%;}
+section h2{text-align:center;margin-bottom:40px;font-size:32px;}
+
 .card{
   background:var(--card);
-  padding:25px;
-  border-radius:10px;
-  margin:15px 0;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  transition:0.3s;
 }
-.gallery{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
-.project{width:300px;position:relative;}
-.project img{width:100%;border-radius:10px;}
+.card:hover{transform:translateY(-8px);}
 
-.timeline{border-left:3px solid var(--accent);padding-left:20px;}
-.timeline-item{margin-bottom:30px;}
-
-input,textarea,select{
-  width:100%;padding:10px;margin:10px 0;
-  border-radius:5px;border:none;
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
 }
-button{
-  background:var(--accent);
-  border:none;
+.project{
+  position:relative;
+  overflow:hidden;
+  border-radius:15px;
+}
+.project img{
+  width:100%;
+  display:block;
+  transition:0.4s;
+}
+.project:hover img{transform:scale(1.1);}
+.project::after{
+  content:"View Project";
+  position:absolute;
+  bottom:0;left:0;
+  width:100%;
+  background:rgba(0,0,0,0.7);
+  color:white;
+  text-align:center;
+  padding:15px;
+  transform:translateY(100%);
+  transition:0.4s;
+}
+.project:hover::after{transform:translateY(0);}
+
+.calculator{
+  max-width:500px;
+  margin:auto;
+}
+.calculator input,
+.calculator select{
+  width:100%;padding:12px;margin:12px 0;
+  border-radius:8px;border:none;
+}
+.calculator button{
+  width:100%;
   padding:12px;
-  font-weight:bold;
-  cursor:pointer;
+  border:none;
+  border-radius:8px;
+  background:var(--accent);
+  font-weight:600;
 }
+#result{margin-top:15px;font-weight:bold;text-align:center;}
 
-footer{text-align:center;padding:30px;background:var(--card);}
+form{
+  max-width:500px;margin:auto;
+}
+input,textarea{
+  width:100%;padding:12px;margin:10px 0;
+  border-radius:8px;border:none;
+}
+button{cursor:pointer;}
+
+footer{
+  text-align:center;
+  padding:30px;
+  background:var(--card);
+}
 
 .whatsapp{
-  position:fixed;bottom:20px;right:20px;
-  background:#25D366;color:white;
-  padding:15px;border-radius:50%;
+  position:fixed;
+  bottom:20px;right:20px;
+  background:#25D366;
+  color:white;
+  padding:15px;
+  border-radius:50%;
   text-decoration:none;
 }
 
 @media(max-width:768px){
-  .gallery{flex-direction:column;align-items:center;}
+.hero h2{font-size:28px;}
 }
 </style>
 </head>
@@ -125,15 +190,11 @@ footer{text-align:center;padding:30px;background:var(--card);}
 </header>
 
 <section class="hero">
-<div class="hero-content" data-aos="fade-up">
+<div data-aos="fade-up">
 <h2 data-mn="SIP болон Модон байшин барилга"
 data-en="SIP & Wooden House Construction">
 SIP болон Модон байшин барилга
 </h2>
-<p data-mn="5 жилийн баталгаа • Эрчим хүчний хэмнэлт"
-data-en="5 Year Warranty • Energy Efficient">
-5 жилийн баталгаа • Эрчим хүчний хэмнэлт
-</p>
 <a href="#contact" class="btn"
 data-mn="Үнийн санал авах"
 data-en="Get Quote">
@@ -144,7 +205,7 @@ data-en="Get Quote">
 
 <section id="about">
 <h2 data-mn="Бидний тухай" data-en="About Us">Бидний тухай</h2>
-<div class="card">
+<div class="card" data-aos="fade-up">
 <p data-mn="Бид Улаанбаатар хотод SIP болон модон байшин барилгын мэргэжлийн үйлчилгээ үзүүлдэг."
 data-en="We provide professional SIP and wooden house construction services in Ulaanbaatar.">
 Бид Улаанбаатар хотод SIP болон модон байшин барилгын мэргэжлийн үйлчилгээ үзүүлдэг.
@@ -166,7 +227,7 @@ data-en="We provide professional SIP and wooden house construction services in U
 data-en="Price Calculator">
 Үнийн урьдчилсан тооцоолол
 </h2>
-
+<div class="calculator">
 <input type="number" id="size" placeholder="m2">
 <select id="floor">
 <option value="1">1 Floor</option>
@@ -177,20 +238,13 @@ data-en="Price Calculator">
 <option value="1.2">Medium</option>
 <option value="1.4">Premium</option>
 </select>
-
-<button onclick="calculateCost()"
-data-mn="Тооцоолох"
-data-en="Calculate">
-Тооцоолох
-</button>
-
+<button onclick="calculateCost()">Calculate</button>
 <div id="result"></div>
+</div>
 </section>
 
 <section id="contact">
 <h2 data-mn="Холбоо барих" data-en="Contact Us">Холбоо барих</h2>
-<p>📞 +976 9925 5484</p>
-
 <form action="https://formsubmit.co/meloenaff123@gmail.com" method="POST">
 <input type="text" name="name" placeholder="Name" required>
 <input type="text" name="phone" placeholder="Phone" required>
@@ -205,12 +259,11 @@ data-en="Calculate">
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init();
+AOS.init({duration:1000});
 
 // THEME
 const toggle=document.getElementById("themeToggle");
-const savedTheme=localStorage.getItem("theme");
-if(savedTheme==="light"){document.body.classList.add("light");}
+if(localStorage.getItem("theme")==="light"){document.body.classList.add("light");}
 toggle.addEventListener("click",()=>{
 document.body.classList.toggle("light");
 localStorage.setItem("theme",
@@ -222,12 +275,10 @@ const languageSelect=document.getElementById("language");
 const savedLang=localStorage.getItem("lang")||"mn";
 languageSelect.value=savedLang;
 setLanguage(savedLang);
-
 languageSelect.addEventListener("change",(e)=>{
 setLanguage(e.target.value);
 localStorage.setItem("lang",e.target.value);
 });
-
 function setLanguage(lang){
 document.documentElement.lang=lang;
 document.querySelectorAll("[data-mn]").forEach(el=>{
@@ -241,12 +292,8 @@ let size=parseFloat(document.getElementById("size").value);
 if(!size||size<30){alert("30m2-с дээш оруулна уу");return;}
 let floor=parseFloat(document.getElementById("floor").value);
 let finish=parseFloat(document.getElementById("finish").value);
-
-let basePrice=size<=80?1300000:
-size<=120?1200000:1100000;
-
+let basePrice=size<=80?1300000:size<=120?1200000:1100000;
 let total=size*basePrice*floor*finish;
-
 document.getElementById("result").innerHTML=
 "Estimated Price: "+total.toLocaleString()+"₮";
 }
