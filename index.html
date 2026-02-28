@@ -1,4 +1,3 @@
-<!-- PRO UPGRADE VERSION – SIP MASTER HOUSE -->
 <!DOCTYPE html>
 <html lang="mn">
 <head>
@@ -6,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SIP Master House | SIP & Wooden House Construction</title>
-
 <meta name="description" content="SIP болон модон байшин барилгын мэргэжлийн үйлчилгээ. 5 жилийн баталгаа, 30–60 хоногт гүйцэтгэнэ.">
 <meta property="og:title" content="SIP Master House">
 <meta property="og:description" content="Energy Efficient SIP Houses in Mongolia">
@@ -19,8 +17,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
-/* ==== ROOT ==== */
 :root{
   --bg:#0f172a;
   --card:#1e293b;
@@ -34,7 +30,12 @@ body.light{
   --accent:#0f172a;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
 body{
   background:var(--bg);
@@ -43,18 +44,22 @@ body{
   transition:0.3s;
 }
 
-/* ==== HEADER ==== */
+/* ===== HEADER ===== */
 header{
-  position:fixed;width:100%;
+  position:fixed;
+  width:100%;
   padding:15px 10%;
-  display:flex;justify-content:space-between;
+  display:flex;
+  justify-content:space-between;
   align-items:center;
   backdrop-filter:blur(12px);
   background:rgba(15,23,42,0.85);
-  transition:0.3s;
   z-index:1000;
+  transition:0.3s;
 }
-body.light header{background:rgba(255,255,255,0.85);}
+body.light header{
+  background:rgba(255,255,255,0.85);
+}
 
 nav a{
   margin-left:20px;
@@ -63,20 +68,30 @@ nav a{
   font-weight:500;
   transition:0.3s;
 }
-nav a:hover{color:var(--accent);}
+nav a:hover{
+  color:var(--accent);
+}
 
-.controls{display:flex;gap:15px;align-items:center;}
+.controls{
+  display:flex;
+  gap:15px;
+  align-items:center;
+}
 
-/* ==== HERO ==== */
+/* ===== HERO ===== */
 .hero{
   height:100vh;
-  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-  url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover no-repeat;
-  display:flex;align-items:center;justify-content:center;
+  background:
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c")
+    center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
 }
 .hero h2{
-  font-size:50px;
+  font-size:48px;
   margin-bottom:20px;
 }
 .btn{
@@ -88,23 +103,33 @@ nav a:hover{color:var(--accent);}
   font-weight:600;
   transition:0.3s;
 }
-.btn:hover{transform:translateY(-5px);}
+.btn:hover{
+  transform:translateY(-5px);
+}
 
-/* ==== SECTION ==== */
-section{padding:120px 10%;}
-section h2{text-align:center;margin-bottom:50px;font-size:34px;}
+/* ===== SECTIONS ===== */
+section{
+  padding:120px 10%;
+}
+section h2{
+  text-align:center;
+  margin-bottom:50px;
+  font-size:32px;
+}
 
-/* ==== CARDS ==== */
+/* ===== CARDS ===== */
 .card{
   background:var(--card);
   padding:35px;
-  border-radius:20px;
+  border-radius:18px;
   box-shadow:0 15px 40px rgba(0,0,0,0.25);
   transition:0.3s;
 }
-.card:hover{transform:translateY(-10px);}
+.card:hover{
+  transform:translateY(-8px);
+}
 
-/* ==== PROJECTS ==== */
+/* ===== PROJECTS ===== */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -113,13 +138,16 @@ section h2{text-align:center;margin-bottom:50px;font-size:34px;}
 .project{
   position:relative;
   overflow:hidden;
-  border-radius:20px;
+  border-radius:18px;
 }
 .project img{
   width:100%;
+  display:block;
   transition:0.5s;
 }
-.project:hover img{transform:scale(1.1);}
+.project:hover img{
+  transform:scale(1.1);
+}
 .project-overlay{
   position:absolute;
   bottom:0;
@@ -131,16 +159,22 @@ section h2{text-align:center;margin-bottom:50px;font-size:34px;}
   transform:translateY(100%);
   transition:0.4s;
 }
-.project:hover .project-overlay{transform:translateY(0);}
+.project:hover .project-overlay{
+  transform:translateY(0);
+}
 
-/* ==== CALCULATOR ==== */
+/* ===== CALCULATOR ===== */
 .calculator{
-  max-width:550px;margin:auto;
+  max-width:550px;
+  margin:auto;
 }
 .calculator input,
 .calculator select{
-  width:100%;padding:14px;margin:12px 0;
-  border-radius:10px;border:none;
+  width:100%;
+  padding:14px;
+  margin:12px 0;
+  border-radius:10px;
+  border:none;
 }
 .calculator button{
   width:100%;
@@ -156,7 +190,7 @@ section h2{text-align:center;margin-bottom:50px;font-size:34px;}
   text-align:center;
 }
 
-/* ==== FOOTER ==== */
+/* ===== FOOTER ===== */
 footer{
   text-align:center;
   padding:40px;
@@ -164,7 +198,9 @@ footer{
 }
 
 .whatsapp{
-  position:fixed;bottom:20px;right:20px;
+  position:fixed;
+  bottom:20px;
+  right:20px;
   background:#25D366;
   color:white;
   padding:18px;
@@ -173,19 +209,34 @@ footer{
 }
 
 @media(max-width:768px){
-.hero h2{font-size:30px;}
+  .hero h2{
+    font-size:28px;
+  }
 }
 </style>
 </head>
+
 <body>
 
-<!-- CONTENT REMAINS SAME AS YOUR CURRENT STRUCTURE -->
-
-<!-- KEEP YOUR EXISTING HTML SECTIONS HERE -->
+<!-- Чиний одоогийн HTML content энд хэвээрээ үлдэнэ -->
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init({duration:1000,once:true});
+AOS.init({duration:1000, once:true});
+
+// Smooth theme toggle
+const toggle=document.getElementById("themeToggle");
+if(toggle){
+  if(localStorage.getItem("theme")==="light"){
+    document.body.classList.add("light");
+  }
+  toggle.addEventListener("click",()=>{
+    document.body.classList.toggle("light");
+    localStorage.setItem("theme",
+      document.body.classList.contains("light")?"light":"dark"
+    );
+  });
+}
 </script>
 
 </body>
