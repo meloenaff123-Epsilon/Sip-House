@@ -100,7 +100,38 @@ button{
 }
 
 footer{text-align:center;padding:30px;background:#020617;}
+.timeline{
+  position:relative;
+  margin-top:50px;
+  padding-left:30px;
+  border-left:3px solid #facc15;
+}
 
+.timeline-item{
+  margin-bottom:40px;
+  position:relative;
+  padding-left:20px;
+}
+
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  left:-11px;
+  top:5px;
+  width:18px;
+  height:18px;
+  background:#facc15;
+  border-radius:50%;
+}
+
+.timeline-item h3{
+  margin-bottom:10px;
+  color:#facc15;
+}
+
+.timeline-item p{
+  opacity:0.8;
+}
 .whatsapp{
   position:fixed;bottom:20px;right:20px;
   background:#25D366;color:white;
@@ -240,7 +271,43 @@ function calculateCost(){
 </div>
   </div>
 </section>
+<section id="process">
+  <h2 data-aos="fade-up">Барилгын явц (Алхам 1–6)</h2>
 
+  <div class="timeline">
+
+    <div class="timeline-item" data-aos="fade-right">
+      <h3>Алхам 1 – Төслийн зөвлөгөө</h3>
+      <p>Хэрэглэгчийн хэрэгцээ, талбайн хэмжээг тодорхойлж, анхан шатны тооцоо гаргана.</p>
+    </div>
+
+    <div class="timeline-item" data-aos="fade-right">
+      <h3>Алхам 2 – Зураг төсөл батлах</h3>
+      <p>Архитектурын болон инженерийн зураг баталж, гэрээ байгуулна.</p>
+    </div>
+
+    <div class="timeline-item" data-aos="fade-right">
+      <h3>Алхам 3 – Суурь цутгалт</h3>
+      <p>Бетон суурийг стандартын дагуу гүйцэтгэнэ.</p>
+    </div>
+
+    <div class="timeline-item" data-aos="fade-right">
+      <h3>Алхам 4 – SIP ханын угсралт</h3>
+      <p>SIP хавтанг богино хугацаанд угсарч, бүтцийн бат бөх байдлыг хангана.</p>
+    </div>
+
+    <div class="timeline-item" data-aos="fade-right">
+      <h3>Алхам 5 – Дээвэр, дулаалга</h3>
+      <p>Дулаан алдагдлыг багасгах шийдэлтэй дээвэр угсралт.</p>
+    </div>
+
+    <div class="timeline-item" data-aos="fade-right">
+      <h3>Алхам 6 – Дотор заслын ажил</h3>
+      <p>Интерьер дуусгалт, шал, ханын өнгөлгөө, цахилгаан, сантехник.</p>
+    </div>
+
+  </div>
+</section>
 <section>
   <h2>Хэрэглэгчдийн сэтгэгдэл</h2>
   <div class="testimonials">
@@ -316,6 +383,7 @@ window.addEventListener("scroll",function(){
 
 </body>
 </html>
+
 
 
 
