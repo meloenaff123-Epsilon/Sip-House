@@ -1,154 +1,52 @@
-<!DOCTYPE html>
-<html lang="mn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Сип Мастэр Хаус | SIP Байшин Барилга</title>
-<meta name="description" content="SIP болон модон байшин барилга угсралт. 5 жилийн баталгаатай.">
-
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
-body{background:#0f172a;color:white;line-height:1.6;scroll-behavior:smooth;}
-
-header{
-  position:fixed;width:100%;background:#0f172a;
-  padding:15px 10%;display:flex;justify-content:space-between;
-  align-items:center;z-index:1000;transition:0.3s;
-}
-header.scrolled{
-  background:rgba(15,23,42,0.95);
-  backdrop-filter:blur(10px);
-}
-header h1{color:#facc15;}
-nav a{color:white;margin-left:20px;text-decoration:none;}
-nav a:hover{color:#facc15;}
-
-.hero{
-  height:100vh;
-  background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover no-repeat;
-  display:flex;align-items:center;justify-content:center;
-  text-align:center;position:relative;
-}
-.hero::after{
-  content:"";position:absolute;width:100%;height:100%;
-  background:rgba(0,0,0,0.6);
-}
-.hero-content{position:relative;z-index:1;}
-.hero h2{font-size:48px;margin-bottom:20px;}
-.btn{
-  background:#facc15;color:black;padding:12px 30px;
-  border-radius:6px;text-decoration:none;font-weight:bold;
-}
-.hero .btn{
-  margin-top:30px;
-  display:inline-block;
-}
-section{padding:100px 10%;}
-.cards{display:flex;flex-wrap:wrap;gap:20px;}
-.card{
-  background:#1e293b;padding:30px;border-radius:10px;
-  flex:1 1 300px;transition:0.3s;
-}
-.card:hover{transform:translateY(-10px);}
-
-.stats{
-  display:flex;justify-content:space-around;text-align:center;
-}
-.stat h3{font-size:40px;color:#facc15;}
-
-.gallery{
-  display:flex;flex-wrap:wrap;gap:20px;justify-content:center;
-}
-.project{position:relative;width:350px;overflow:hidden;}
-.project img{
-  width:100%;border-radius:10px;transition:0.3s;cursor:pointer;
-}
-.project:hover img{transform:scale(1.05);}
-.project-overlay{
-  position:absolute;bottom:0;width:100%;
-  background:rgba(0,0,0,0.7);padding:15px;
-  transform:translateY(100%);transition:0.3s;
-}
-.project:hover .project-overlay{transform:translateY(0);}
-.project-overlay h4{color:#facc15;margin-bottom:5px;}
-
-.testimonials{
-  display:flex;gap:20px;flex-wrap:wrap;
-}
-.testimonial{
-  background:#1e293b;padding:25px;border-radius:10px;
-  flex:1 1 300px;
-}
-
-.cta{
-  background:#1e293b;text-align:center;
-  padding:80px 10%;border-radius:12px;
-}
-
-form{max-width:500px;margin:auto;}
-input,textarea{
-  width:100%;padding:12px;margin:10px 0;
-  border:none;border-radius:5px;
-}
-button{
-  background:#facc15;color:black;
-  padding:12px;border:none;width:100%;
-  border-radius:5px;font-weight:bold;
-}
-
-footer{text-align:center;padding:30px;background:#020617;}
-.timeline{
-  position:relative;
-  margin-top:50px;
-  padding-left:30px;
-  border-left:3px solid #facc15;
-}
-
-.timeline-item{
-  margin-bottom:40px;
-  position:relative;
-  padding-left:20px;
-}
-
-.timeline-item::before{
-  content:"";
-  position:absolute;
-  left:-11px;
-  top:5px;
-  width:18px;
-  height:18px;
-  background:#facc15;
-  border-radius:50%;
-}
-
-.timeline-item h3{
-  margin-bottom:10px;
-  color:#facc15;
-}
-
-.timeline-item p{
-  opacity:0.8;
-}
-.whatsapp{
-  position:fixed;bottom:20px;right:20px;
-  background:#25D366;color:white;
-  padding:15px;border-radius:50%;
-  font-size:22px;text-decoration:none;
-}
-
-@media(max-width:768px){
-  .hero h2{font-size:30px;}
-  .project{width:100%;}
-  .stats{flex-direction:column;gap:20px;}
-}
-</style>
-</head>
 <script>
-function calculateCost(){
+document.addEventListener("DOMContentLoaded", function(){
 
+  // Header scroll effect
+  window.addEventListener("scroll", function(){
+    document.querySelector("header")
+      .classList.toggle("scrolled", window.scrollY > 50);
+  });
+
+  // Counter animation
+  function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom >= 0;
+  }
+
+  function animateCounters() {
+    const counters = document.querySelectorAll('.count');
+
+    counters.forEach(counter => {
+      if (!counter.classList.contains('started') && isInViewport(counter)) {
+
+        counter.classList.add('started');
+
+        const target = +counter.getAttribute('data-target');
+        let count = 0;
+        const speed = 200;
+
+        function update(){
+          count += target / speed;
+          if(count < target){
+            counter.innerText = Math.ceil(count);
+            requestAnimationFrame(update);
+          } else {
+            counter.innerText = target;
+          }
+        }
+
+        update();
+      }
+    });
+  }
+
+  window.addEventListener('scroll', animateCounters);
+  animateCounters();
+
+});
+
+// Calculator
+function calculateCost(){
   let size = parseFloat(document.getElementById("size").value);
   let floor = parseFloat(document.getElementById("floor").value);
   let finish = parseFloat(document.getElementById("finish").value);
@@ -158,7 +56,6 @@ function calculateCost(){
     return;
   }
 
-  // REAL MARKET LOGIC
   let basePricePerM2;
 
   if(size <= 80){
@@ -174,305 +71,9 @@ function calculateCost(){
   let resultBox = document.getElementById("result");
 
   resultBox.innerHTML =
-    "Ойролцоох үнэ: " + total.toLocaleString() + "₮<br><small>Нарийвчилсан үнийн санал авах бол доорх form-оор холбогдоно уу.</small>";
+    "Ойролцоох үнэ: <strong>" +
+    total.toLocaleString() +
+    "₮</strong><br><small>Нарийвчилсан үнийн санал авах бол доорх form-оор холбогдоно уу.</small>";
 
-  resultBox.classList.add("show");
-
-  // Auto scroll to contact
-  setTimeout(()=>{
-    document.getElementById("contact").scrollIntoView({behavior:"smooth"});
-  },1500);
 }
 </script>
-</script>
-  <script>
-const counters = document.querySelectorAll('.count');
-const speed = 200;
-
-counters.forEach(counter => {
-
-  const updateCount = () => {
-    const target = +counter.getAttribute('data-target');
-    const count = +counter.innerText;
-
-    const increment = target / speed;
-
-    if(count < target){
-      counter.innerText = Math.ceil(count + increment);
-      setTimeout(updateCount, 10);
-    } else {
-      counter.innerText = target;
-    }
-  };
-
-  updateCount();
-});
-</script>
-  <script>
-function isInViewport(el) {
-  const rect = el.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
-}
-
-function animateCounters() {
-  const counters = document.querySelectorAll('.count');
-  counters.forEach(counter => {
-    if (!counter.classList.contains('started') && isInViewport(counter)) {
-      counter.classList.add('started');
-      const target = +counter.getAttribute('data-target');
-      let count = 0;
-      const speed = 200;
-      const update = () => {
-        count += target / speed;
-        if (count < target) {
-          counter.innerText = Math.ceil(count);
-          requestAnimationFrame(update);
-        } else {
-          counter.innerText = target;
-        }
-      };
-      update();
-    }
-  });
-}
-
-window.addEventListener('scroll', animateCounters);
-</script>
-<body>
-
-<header>
-  <h1>Сип Мастэр Хаус</h1>
-  <nav>
-    <a href="#about">Бидний тухай</a>
-    <a href="#projects">Төслүүд</a>
-    <a href="#contact">Холбоо</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div class="hero-content" data-aos="fade-up">
-    <h2>SIP болон Модон байшин Хавтан худалдаа</h2>
-    <p>5 жилийн баталгаатай • Эрчим хүчний хэмнэлт • Үнэгүй зөвлөгөө</p>
-    <a href="#contact" class="btn">Үнийн санал авах</a>
-  </div>
-</section>
-window.addEventListener('scroll', animateCounters);
-<section id="about">
-  <h2>Бидний тухай</h2>
-  <p>Бид Улаанбаатар хотод SIP болон модон байшин барилгын мэргэжлийн үйлчилгээ үзүүлдэг.</p>
-</section>
-
-<section>
-  <h2>Яагаад Сип Мастэр Хаус вэ?</h2>
-<div class="cards">
-  <div class="card">
-    <div class="icon-circle">
-      <i class="fas fa-hammer"></i>
-    </div>
-    <h3><span class="count" data-target="10">0</span>+</h3>
-    <p>Жилийн туршлага</p>
-  </div>
-
-  <div class="card">
-    <div class="icon-circle">
-      <i class="fas fa-building"></i>
-    </div>
-    <h3><span class="count" data-target="120">0</span>+</h3>
-    <p>Амжилттай төсөл</p>
-  </div>
-
-  <div class="card">
-    <div class="icon-circle">
-      <i class="fas fa-shield-alt"></i>
-    </div>
-    <h3>5 жил</h3>
-    <p>Баталгаа</p>
-  </div>
-
-  <div class="card">
-    <div class="icon-circle">
-      <i class="fas fa-clock"></i>
-    </div>
-    <h3>30–60 хоног</h3>
-    <p>Гүйцэтгэлийн хугацаа</p>
-  </div>
-
-</div>
-</div>
-</section>
-<section id="projects">
-  <h2>Төслүүд</h2>
-
-  <div class="gallery">
-
-    <div class="project">
-      <img src="/Sip-House/images/sip1.jpg" alt="SIP Ханын бүтэц">
-      <div class="project-overlay">
-        <h4>SIP Ханын бүтэц</h4>
-        <p>Дэлгэрэнгүй →</p>
-      </div>
-    </div>
-
-    <div class="project">
-      <img src="/Sip-House/images/sip2.jpg" alt="SIP Дотоод хийц">
-      <div class="project-overlay">
-        <h4>SIP Дотоод хийц</h4>
-        <p>Дэлгэрэнгүй →</p>
-      </div>
-    </div>
-
-    <div class="project">
-      <img src="/Sip-House/images/sip3.jpg" alt="SIP Холболтын шийдэл">
-      <div class="project-overlay">
-        <h4>SIP Холболтын шийдэл</h4>
-        <p>Дэлгэрэнгүй →</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-</section>
-<section id="process">
-  <h2 data-aos="fade-up">Барилгын явц (Алхам 1–6)</h2>
-
-  <div class="timeline">
-
-    <div class="timeline-item" data-aos="fade-right">
-      <h3>Алхам 1 – Төслийн зөвлөгөө</h3>
-      <p>Хэрэглэгчийн хэрэгцээ, талбайн хэмжээг тодорхойлж, анхан шатны тооцоо гаргана.</p>
-    </div>
-
-    <div class="timeline-item" data-aos="fade-right">
-      <h3>Алхам 2 – Зураг төсөл батлах</h3>
-      <p>Архитектурын болон инженерийн зураг баталж, гэрээ байгуулна.</p>
-    </div>
-
-    <div class="timeline-item" data-aos="fade-right">
-      <h3>Алхам 3 – Суурь цутгалт</h3>
-      <p>Бетон суурийг стандартын дагуу гүйцэтгэнэ.</p>
-    </div>
-
-    <div class="timeline-item" data-aos="fade-right">
-      <h3>Алхам 4 – SIP ханын угсралт</h3>
-      <p>SIP хавтанг богино хугацаанд угсарч, бүтцийн бат бөх байдлыг хангана.</p>
-    </div>
-
-    <div class="timeline-item" data-aos="fade-right">
-      <h3>Алхам 5 – Дээвэр, дулаалга</h3>
-      <p>Дулаан алдагдлыг багасгах шийдэлтэй дээвэр угсралт.</p>
-    </div>
-
-    <div class="timeline-item" data-aos="fade-right">
-      <h3>Алхам 6 – Дотор заслын ажил</h3>
-      <p>Интерьер дуусгалт, шал, ханын өнгөлгөө, цахилгаан, сантехник.</p>
-    </div>
-
-  </div>
-</section>
-<section>
-  <h2>Хэрэглэгчдийн сэтгэгдэл</h2>
-  <div class="testimonials">
-    <div class="testimonial">
-      ⭐⭐⭐⭐⭐
-      <p>45 хоногт хүлээлгэж өгсөн. Дулаан маш сайн.</p>
-      <strong>Бат-Эрдэнэ</strong>
-    </div>
-    <div class="testimonial">
-      ⭐⭐⭐⭐⭐
-      <p>Маш хариуцлагатай, чанартай ажилласан.</p>
-      <strong>Отгонцэцэг</strong>
-    </div>
-  </div>
-</section>
-
-<section class="cta">
-  <h2>Өөрийн байшингийн төслийг өнөөдөр эхлүүлмээр байна уу?</h2>
-  <a href="#contact" class="btn">Үнэгүй зөвлөгөө авах</a>
-</section>
-<section>
- <section>
-  <h2>Байшингийн үнийн урьдчилсан тооцоолол</h2>
-
-  <div class="calculator">
-
-    <label>Хэмжээ (м2)</label>
-    <input type="number" id="size" placeholder="Жишээ: 85">
-
-    <label>Давхар</label>
-    <select id="floor">
-      <option value="1">1 давхар</option>
-      <option value="1.25">2 давхар</option>
-    </select>
-
-    <label>Дуусгалтын түвшин</label>
-    <select id="finish">
-      <option value="1">Стандарт</option>
-      <option value="1.2">Дунд</option>
-      <option value="1.4">Дээд зэрэглэл</option>
-    </select>
-
-    <button onclick="calculateCost()">Тооцоолох</button>
-
-    <div class="calculator-result" id="result"></div>
-
-  </div>
-</section>
-<section id="contact">
-  <h2>Холбоо барих</h2>
-  <p>📞 +976 9925 5484</p>
-  <form>
-<form action="https://formsubmit.co/meloenaff123@gmail.com" method="POST">
-
-  <input type="hidden" name="_next" value="https://meloenaff123-epsilon.github.io/Sip-House/">
-
-  <input type="text" name="name" placeholder="Таны нэр" required>
-
-  <input type="email" name="email" placeholder="Имэйл хаяг" required>
-
-  <input type="tel" name="phone" placeholder="Утас" required>
-
-  <textarea name="message" placeholder="Төслийн мэдээлэл" required></textarea>
-
-  <button type="submit">Илгээх</button>
-
-</form>
-
-<footer>
-© 2026 Сип Мастэр Хаус
-</footer>
-
-<a href="https://wa.me/97699255484" class="whatsapp" target="_blank">💬</a>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-AOS.init();
-window.addEventListener("scroll",function(){
-  document.querySelector("header").classList.toggle("scrolled",window.scrollY>50);
-});
-</script>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
